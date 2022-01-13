@@ -1,18 +1,40 @@
-import { Button } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
+import { ContactCard } from './components/ContactCard';
+import { ContactInfo } from './components/ContactInfo';
 import getContacts from './helpers/contactData';
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [info, setInfo] = useState({});
 
   useEffect(() => {
     getContacts().then(setContacts);
   }, []);
 
   return (
-    <div className='App'>
-      <Button onClick={() => console.warn(contacts)}>Test</Button>
-    </div>
+    <Flex flexDir={"row"} justifyContent={"center"}>
+      <Button onClick={() => console.warn(contacts, info)}>Test</Button>
+      <Flex flexDir={"column"} width={"50%"} marginTop={"10rem"} align={"center"}>
+        <Text fontSize={"4xl"}>Contacts</Text>
+          {contacts.map((contact) => (
+              <ContactCard
+                key={contact.id}
+                contact={contact}
+                setInfo={setInfo}
+              />
+          ))}
+      </Flex>
+      <Flex flexDir={"column"} width={"50%"} marginTop={"10rem"}  align={"center"}>
+        {info !== null 
+          ? <ContactInfo
+              contact={info}
+              setInfo={setInfo}
+            />
+          : ""
+        }
+      </Flex>
+    </Flex>
   );
 }
 
