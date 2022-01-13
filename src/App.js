@@ -1,4 +1,4 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { ContactCard } from './components/ContactCard';
 import { ContactInfo } from './components/ContactInfo';
@@ -14,7 +14,6 @@ function App() {
 
   return (
     <Flex flexDir={"row"} justifyContent={"center"}>
-      <Button onClick={() => console.warn(info)}>Test</Button>
       <Flex flexDir={"column"} width={"50%"} marginTop={"10rem"} align={"center"}>
         <Text fontSize={"4xl"}>Contacts</Text>
           {contacts.map((contact) => (

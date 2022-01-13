@@ -42,7 +42,7 @@ export const ContactForm = ({ info, setInfo }) => {
             <Text marginTop={"2px"} mb={"8px"}>Notes</Text>
             <Input
                 onChange={handleUpdate} 
-                name="itemName" 
+                name="notes" 
                 defaultValue={info.notes}
                 marginBottom={"2rem"} 
                 placeholder="Notes" 
