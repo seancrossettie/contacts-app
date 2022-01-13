@@ -6,7 +6,7 @@ import getContacts from './helpers/contactData';
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState(null);
 
   useEffect(() => {
     getContacts().then(setContacts);
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Flex flexDir={"row"} justifyContent={"center"}>
-      <Button onClick={() => console.warn(contacts, info)}>Test</Button>
+      <Button onClick={() => console.warn(info)}>Test</Button>
       <Flex flexDir={"column"} width={"50%"} marginTop={"10rem"} align={"center"}>
         <Text fontSize={"4xl"}>Contacts</Text>
           {contacts.map((contact) => (
@@ -28,8 +28,10 @@ function App() {
       <Flex flexDir={"column"} width={"50%"} marginTop={"10rem"}  align={"center"}>
         {info !== null 
           ? <ContactInfo
-              contact={info}
+              info={info}
               setInfo={setInfo}
+              contacts={contacts}
+              setContacts={setContacts}
             />
           : ""
         }
