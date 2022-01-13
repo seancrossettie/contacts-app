@@ -3,6 +3,11 @@
 ## Deployed Site
 https://foundry-376-contacts.netlify.app/
 
+## Features
+- View contact all contacts
+- Get contact details
+- Update contacts (with validation on email)
+
 Bootstrapped with ```npx create-react-app``` and includes the following dependencies:
 - Chakra UI
 - Axios
