@@ -6,3 +6,4 @@ https://foundry-376-contacts.netlify.app/
 Bootstrapped with ```npx create-react-app``` and includes the following dependencies:
 - Chakra UI
 - Axios
+- validator.js
